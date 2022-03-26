@@ -30,22 +30,15 @@ const Home: NextPage = () => {
     <>
       {isModalOpen && (
         <div className="h-screen w-full fixed left-0 top-0 flex justify-center items-center bg-black bg-opacity-70 text-center space-x-4 p-10">
-          <motion.div
-            initial="offscreen"
-            whileInView="onscreen"
-            viewport={{ amount: 0.8 }}
-            variants={upVariants}
-          >
-            <div className="flex justify-center items-left py-10 px-20 flex-col backdrop-blur-3xl rounded-3xl text-white">
-              <h1 className="text-white  font-bold text-6xl mb-4">Copied!</h1>
-              <button
-                onClick={() => setModal(false)}
-                className="px-5 py-2 rounded-xl text-white text-2xl font-semibold bg-red-600 "
-              >
-                Close
-              </button>
-            </div>
-          </motion.div>
+          <div className="flex justify-center items-left py-10 px-20 flex-col backdrop-blur-3xl rounded-3xl text-white">
+            <h1 className="text-white  font-bold text-6xl mb-4">Copied!</h1>
+            <button
+              onClick={() => setModal(false)}
+              className="px-5 py-2 rounded-xl text-white text-2xl font-semibold bg-red-600 "
+            >
+              Close
+            </button>
+          </div>
         </div>
       )}
       <div className="fixed w-screen z-30">
