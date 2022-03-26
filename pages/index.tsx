@@ -6,6 +6,7 @@ import { FaDiscord, FaGamepad } from "react-icons/fa";
 import { RiEnglishInput } from "react-icons/ri";
 import { GiTomato } from "react-icons/gi";
 import { CgMathDivide } from "react-icons/cg";
+import { motion, Variants } from "framer-motion";
 import {
   SiTypescript,
   SiJavascript,
@@ -22,6 +23,51 @@ import {
 import { useCopyToClipboard } from "usehooks-ts";
 import { useState } from "react";
 
+const startVariants: Variants = {
+  offscreen: {
+    x: -300,
+  },
+  onscreen: {
+    x: 0,
+    rotate: 0,
+    transition: {
+      type: "spring",
+      bounce: 0.4,
+      duration: 0.8,
+    },
+  },
+};
+
+const upVariants: Variants = {
+  offscreen: {
+    y: 300,
+  },
+  onscreen: {
+    y: 0,
+    rotate: 0,
+    transition: {
+      type: "spring",
+      bounce: 0.4,
+      duration: 0.8,
+    },
+  },
+};
+
+const gameVariants: Variants = {
+  offscreen: {
+    rotate: 15,
+  },
+  onscreen: {
+    x: 0,
+    rotate: -15,
+    transition: {
+      type: "spring",
+      bounce: 0.4,
+      duration: 1,
+    },
+  },
+};
+
 const Home: NextPage = () => {
   const [value, copy] = useCopyToClipboard();
   const [isModalOpen, setModal] = useState(false);
@@ -29,19 +75,26 @@ const Home: NextPage = () => {
     <>
       {isModalOpen && (
         <div className="h-screen w-full fixed left-0 top-0 flex justify-center items-center bg-black bg-opacity-70 text-center space-x-4 p-10">
-          <div className="flex justify-center items-left py-10 px-20 flex-col backdrop-blur-3xl rounded-3xl text-white">
-            <h1 className="text-white  font-bold text-6xl mb-4">Copied!</h1>
-            <button
-              onClick={() => setModal(false)}
-              className="px-5 py-2 rounded-xl text-white text-2xl font-semibold bg-red-600 "
-            >
-              Close
-            </button>
-          </div>
+          <motion.div
+            initial="offscreen"
+            whileInView="onscreen"
+            viewport={{ amount: 0.8 }}
+            variants={upVariants}
+          >
+            <div className="flex justify-center items-left py-10 px-20 flex-col backdrop-blur-3xl rounded-3xl text-white">
+              <h1 className="text-white  font-bold text-6xl mb-4">Copied!</h1>
+              <button
+                onClick={() => setModal(false)}
+                className="px-5 py-2 rounded-xl text-white text-2xl font-semibold bg-red-600 "
+              >
+                Close
+              </button>
+            </div>
+          </motion.div>
         </div>
       )}
       <div className="fixed w-screen z-30">
-        <nav className="max-w-7xl h-20 flex items-center justify-between p-10 backdrop-blur-2xl sticky top-0">
+        <nav className="max-w-7xl h-15 flex items-center justify-between py-3 px-10 backdrop-blur-2xl sticky top-0">
           <div className="flex flex-row justify-center items-center space-x-2">
             <div className="h-11 w-11 relative spin">
               <Image
@@ -56,11 +109,22 @@ const Home: NextPage = () => {
           </div>
         </nav>
       </div>
-      <div className="p-10 snap-y snap-mandatory h-screen overflow-scroll bg-[url('/background.jpg')] bg-cover break-keep">
+      <div className="p-10 md:snap-y snap-mandatory h-screen overflow-scroll bg-[url('/background.jpg')] bg-cover break-keep">
         <div className="flex justify-center items-left min-h-screen flex-col snap-start">
-          <h1 className="text-white  font-black text-6xl mb-2">
-            Hello My Name is <span className="text-emerald-500">Rnaudah</span>.
-          </h1>
+          <motion.div
+            initial="offscreen"
+            whileInView="onscreen"
+            viewport={{ once: true, amount: 0.8 }}
+            variants={startVariants}
+          >
+            <h1 className="text-white  font-black text-6xl mb-2">
+              Hello My Name is{" "}
+              <span className="text-emerald-500 underline decoration-emerald-500">
+                Rnaudah
+              </span>
+              .
+            </h1>
+          </motion.div>
           <p className="font-bold text-2xl text-white">
             새로운 걸 좋아하고, 만드는 걸 좋아하는, 그냥 컴퓨터를 좋아하는
             학생이며,
@@ -86,22 +150,36 @@ const Home: NextPage = () => {
           </div>
         </div>
         <div className="flex justify-center items-left min-h-screen flex-col snap-start">
-          <h1 className="font-black  text-white text-5xl">
-            <span className="text-6xl">I Can Do </span>Typescript, JavaScript,
-            Python, React.js, Next.js, Tailwindcss, Prisma, Fast-api,
-            Discord.py, Discord.js
-          </h1>
+          <motion.div
+            initial="offscreen"
+            whileInView="onscreen"
+            viewport={{ once: true, amount: 0.8 }}
+            variants={startVariants}
+          >
+            <h1 className="font-black  text-white text-5xl">
+              <span className="text-6xl">I Can Do </span>Typescript, JavaScript,
+              Python, React.js, Next.js, Tailwindcss, Prisma, Fast-api,
+              Discord.py, Discord.js
+            </h1>
+          </motion.div>
           <p className="font-bold text-white text-2xl mt-10">
             Next.js {"&"} Typescript 조합을 많이 쓰고 있으며, 알고리즘을 배우기
             시작했습니다. 현재 C 계열 언어를 배워볼려고 합니다.
           </p>
         </div>
         <div className="flex justify-center items-left min-h-screen flex-col snap-start">
-          <h1 className="font-black  text-white text-5xl">
-            <span className="text-6xl">I Want to Learn </span>Nest.js, Scss,
-            Graphql, Java, Go, Rust, C, C#, C++, Swift, Flutter, TypeOrm,
-            Docker, Github Actions, AWS, Spring
-          </h1>
+          <motion.div
+            initial="offscreen"
+            whileInView="onscreen"
+            viewport={{ once: true, amount: 0.8 }}
+            variants={startVariants}
+          >
+            <h1 className="font-black  text-white text-5xl">
+              <span className="text-6xl">I Want to Learn </span>Nest.js, Scss,
+              Graphql, Java, Go, Rust, C, C#, C++, Swift, Flutter, TypeOrm,
+              Docker, Github Actions, AWS, Spring
+            </h1>
+          </motion.div>
           <p className="font-bold text-white text-2xl mt-10">
             요즘에 Nest.js가 눈에 띄어서 배워보고 싶습니다.
           </p>
@@ -157,7 +235,20 @@ const Home: NextPage = () => {
               </p>
             </div>
             <div className="flex justify-center items-left py-10 px-20 flex-col backdrop-blur-3xl rounded-3xl text-white">
-              <FaGamepad className="w-32 h-32 fill-blue-700 mb-5" />
+              <motion.div
+                animate={{
+                  rotate: [15, 0, -15, 0, 15, 0, -15, 0],
+                }}
+                transition={{
+                  type: "spring",
+                  bounce: 0.4,
+                  duration: 0.8,
+                  repeat: Infinity,
+                  repeatDelay: 1,
+                }}
+              >
+                <FaGamepad className="w-32 h-32 fill-blue-700 mb-5" />
+              </motion.div>
               <p className="font-bold text-white text-2xl">
                 게임도 좋아합니다.
               </p>
