@@ -23,51 +23,6 @@ import {
 import { useCopyToClipboard } from "usehooks-ts";
 import { useState } from "react";
 
-const startVariants: Variants = {
-  offscreen: {
-    x: -300,
-  },
-  onscreen: {
-    x: 0,
-    rotate: 0,
-    transition: {
-      type: "spring",
-      bounce: 0.4,
-      duration: 0.8,
-    },
-  },
-};
-
-const upVariants: Variants = {
-  offscreen: {
-    y: 300,
-  },
-  onscreen: {
-    y: 0,
-    rotate: 0,
-    transition: {
-      type: "spring",
-      bounce: 0.4,
-      duration: 0.8,
-    },
-  },
-};
-
-const gameVariants: Variants = {
-  offscreen: {
-    rotate: 15,
-  },
-  onscreen: {
-    x: 0,
-    rotate: -15,
-    transition: {
-      type: "spring",
-      bounce: 0.4,
-      duration: 1,
-    },
-  },
-};
-
 const Home: NextPage = () => {
   const [value, copy] = useCopyToClipboard();
   const [isModalOpen, setModal] = useState(false);
@@ -111,20 +66,13 @@ const Home: NextPage = () => {
       </div>
       <div className="p-10 md:snap-y snap-mandatory h-screen overflow-scroll bg-[url('/background.jpg')] bg-cover break-keep">
         <div className="flex justify-center items-left min-h-screen flex-col snap-start">
-          <motion.div
-            initial="offscreen"
-            whileInView="onscreen"
-            viewport={{ once: true, amount: 0.8 }}
-            variants={startVariants}
-          >
-            <h1 className="text-white  font-black text-6xl mb-2">
-              Hello My Name is{" "}
-              <span className="text-emerald-500 underline decoration-emerald-500">
-                Rnaudah
-              </span>
-              .
-            </h1>
-          </motion.div>
+          <h1 className="text-white  font-black text-6xl mb-2">
+            Hello My Name is{" "}
+            <span className="text-emerald-500 underline decoration-emerald-500">
+              Rnaudah
+            </span>
+            .
+          </h1>
           <p className="font-bold text-2xl text-white">
             새로운 걸 좋아하고, 만드는 걸 좋아하는, 그냥 컴퓨터를 좋아하는
             학생이며,
@@ -150,36 +98,22 @@ const Home: NextPage = () => {
           </div>
         </div>
         <div className="flex justify-center items-left min-h-screen flex-col snap-start">
-          <motion.div
-            initial="offscreen"
-            whileInView="onscreen"
-            viewport={{ once: true, amount: 0.8 }}
-            variants={startVariants}
-          >
-            <h1 className="font-black  text-white text-5xl">
-              <span className="text-6xl">I Can Do </span>Typescript, JavaScript,
-              Python, React.js, Next.js, Tailwindcss, Prisma, Fast-api,
-              Discord.py, Discord.js
-            </h1>
-          </motion.div>
+          <h1 className="font-black  text-white text-5xl">
+            <span className="text-6xl">I Can Do </span>Typescript, JavaScript,
+            Python, React.js, Next.js, Tailwindcss, Prisma, Fast-api,
+            Discord.py, Discord.js
+          </h1>
           <p className="font-bold text-white text-2xl mt-10">
             Next.js {"&"} Typescript 조합을 많이 쓰고 있으며, 알고리즘을 배우기
             시작했습니다. 현재 C 계열 언어를 배워볼려고 합니다.
           </p>
         </div>
         <div className="flex justify-center items-left min-h-screen flex-col snap-start">
-          <motion.div
-            initial="offscreen"
-            whileInView="onscreen"
-            viewport={{ once: true, amount: 0.8 }}
-            variants={startVariants}
-          >
-            <h1 className="font-black  text-white text-5xl">
-              <span className="text-6xl">I Want to Learn </span>Nest.js, Scss,
-              Graphql, Java, Go, Rust, C, C#, C++, Swift, Flutter, TypeOrm,
-              Docker, Github Actions, AWS, Spring
-            </h1>
-          </motion.div>
+          <h1 className="font-black  text-white text-5xl">
+            <span className="text-6xl">I Want to Learn </span>Nest.js, Scss,
+            Graphql, Java, Go, Rust, C, C#, C++, Swift, Flutter, TypeOrm,
+            Docker, Github Actions, AWS, Spring
+          </h1>
           <p className="font-bold text-white text-2xl mt-10">
             요즘에 Nest.js가 눈에 띄어서 배워보고 싶습니다.
           </p>
