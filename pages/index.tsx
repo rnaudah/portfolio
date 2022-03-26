@@ -24,7 +24,7 @@ import { useState } from "react";
 
 const Home: NextPage = () => {
   const [value, copy] = useCopyToClipboard();
-  const [isModalOpen, useModal] = useState(false);
+  const [isModalOpen, setModal] = useState(false);
   return (
     <>
       {isModalOpen && (
@@ -32,7 +32,7 @@ const Home: NextPage = () => {
           <div className="flex justify-center items-left py-10 px-20 flex-col backdrop-blur-3xl rounded-3xl text-white">
             <h1 className="text-white  font-bold text-6xl mb-4">Copied!</h1>
             <button
-              onClick={() => useModal(false)}
+              onClick={() => setModal(false)}
               className="px-5 py-2 rounded-xl text-white text-2xl font-semibold bg-red-600 "
             >
               Close
@@ -77,7 +77,7 @@ const Home: NextPage = () => {
             <button
               onClick={() => {
                 copy("rnaudah#4654");
-                useModal(true);
+                setModal(true);
               }}
               className="p-4 text-white border-2 border-blue-600 hover:bg-blue-600 transition rounded-xl"
             >
