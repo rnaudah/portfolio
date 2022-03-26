@@ -24,7 +24,7 @@ import { useState } from "react";
 
 const Home: NextPage = () => {
   const [value, copy] = useCopyToClipboard();
-  const [isModalOpen, useModal] = useState(true);
+  const [isModalOpen, useModal] = useState(false);
   return (
     <>
       {isModalOpen && (
