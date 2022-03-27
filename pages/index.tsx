@@ -41,26 +41,11 @@ const Home: NextPage = () => {
           </div>
         </div>
       )}
-      <div className="fixed w-screen z-30">
-        <nav className="max-w-7xl h-15 flex items-center justify-between py-3 px-10 backdrop-blur-2xl sticky top-0">
-          <div className="flex flex-row justify-center items-center space-x-2">
-            <div className="h-11 w-11 relative spin">
-              <Image
-                src="/profile.png"
-                alt="my profile"
-                layout="fill"
-                objectFit="cover"
-                className="rounded-full"
-              />
-            </div>
-            <h1 className="text-white font-bold">Rnaudah</h1>
-          </div>
-        </nav>
-      </div>
+
       <div className="p-10 md:snap-y snap-mandatory h-screen overflow-scroll bg-[url('/background.jpg')] bg-cover break-keep">
         <div className="flex justify-center items-left min-h-screen flex-col snap-start">
           <h1 className="text-white  font-black text-6xl mb-2">
-            Hello My Name is{" "}
+            👋 My Name is{" "}
             <span className="text-emerald-500 underline decoration-emerald-500">
               Rnaudah
             </span>
@@ -91,28 +76,23 @@ const Home: NextPage = () => {
           </div>
         </div>
         <div className="flex justify-center items-left min-h-screen flex-col snap-start">
-          <h1 className="font-black  text-white text-5xl">
-            <span className="text-6xl">I Can Do </span>Typescript, JavaScript,
-            Python, React.js, Next.js, Tailwindcss, Prisma, Fast-api,
-            Discord.py, Discord.js
+          <h1 className="font-black  text-white text-3xl space-y-5">
+            <span className="text-4xl">My Skills</span>
+            <div className="flex">
+              <div className="mb-5 flex text-white backdrop-blur-3xl p-10 bg-black bg-opacity-20 rounded-2xl">
+                Typescript, Javascript, Python, Next.js ...
+              </div>
+            </div>
+            <span className="text-4xl">I Want to learn</span>
+            <div className="flex">
+              <div className="flex text-white backdrop-blur-3xl p-10 bg-black bg-opacity-20 rounded-2xl">
+                Go, Rust, C, C#, C++, Java, Swift, Flutter ...
+              </div>
+            </div>
           </h1>
-          <p className="font-bold text-white text-2xl mt-10">
-            Next.js {"&"} Typescript 조합을 많이 쓰고 있으며, 알고리즘을 배우기
-            시작했습니다. 현재 C 계열 언어를 배워볼려고 합니다.
-          </p>
         </div>
         <div className="flex justify-center items-left min-h-screen flex-col snap-start">
-          <h1 className="font-black  text-white text-5xl">
-            <span className="text-6xl">I Want to Learn </span>Nest.js, Scss,
-            Graphql, Java, Go, Rust, C, C#, C++, Swift, Flutter, TypeOrm,
-            Docker, Github Actions, AWS, Spring
-          </h1>
-          <p className="font-bold text-white text-2xl mt-10">
-            요즘에 Nest.js가 눈에 띄어서 배워보고 싶습니다.
-          </p>
-        </div>
-        <div className="flex justify-center items-left min-h-screen flex-col snap-start">
-          <h1 className="text-white  font-black text-6xl mb-2">Projects</h1>
+          <h1 className="text-white  font-black text-5xl mb-2">Projects</h1>
           <div className="flex flex-row space-x-3 overflow-x-auto py-5">
             <div className="flex justify-center items-left  py-10 px-20  flex-col backdrop-blur-3xl rounded-3xl text-white">
               <h1 className="font-black text-4xl mb-2 ">Synonym</h1>
@@ -138,7 +118,7 @@ const Home: NextPage = () => {
           </div>
         </div>
         <div className="flex justify-center items-left min-h-screen flex-col snap-start">
-          <h1 className="text-white  font-black text-7xl mb-2">I Like...</h1>
+          <h1 className="text-white  font-black text-5xl mb-2">I Like ...</h1>
           <div className="flex flex-row space-x-10 overflow-x-auto flex-shrink-0 p-10 ">
             <div className="flex justify-center items-left py-10 px-20 flex-col backdrop-blur-3xl rounded-3xl text-white">
               <SiApple className="w-32 h-32 fill-white mb-5" />
@@ -197,7 +177,7 @@ const Home: NextPage = () => {
           </div>
         </div>
         <div className="flex justify-center items-left min-h-screen flex-col snap-start">
-          <h1 className="text-white  font-black text-7xl mb-2">I Hate...</h1>
+          <h1 className="text-white  font-black text-5xl mb-2">I Hate ...</h1>
           <div className="flex flex-row space-x-10 overflow-x-auto p-10 ">
             <div className="flex justify-center items-left py-10 px-20 flex-col backdrop-blur-3xl rounded-3xl text-white">
               <GiTomato className="w-32 h-32 fill-red-500 mb-5" />
